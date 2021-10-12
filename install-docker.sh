@@ -4,6 +4,7 @@ ssh-keygen -A
 service ssh restart
 mkdir /root/.ssh/
 cat /mnt/c/cert/id_rsa.pub >> /root/.ssh/authorized_keys
+
 apt-get install \
     apt-transport-https \
     ca-certificates \
@@ -13,7 +14,7 @@ apt-get install \
 
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
 
-apt-get update 
+
 
 echo \
   "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
