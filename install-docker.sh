@@ -11,8 +11,8 @@ sudo bash -c 'echo "nameserver 8.8.8.8" > /etc/resolv.conf'
 sudo bash -c 'echo "[network]" > /etc/wsl.conf'
 sudo bash -c 'echo "generateResolvConf = false" >> /etc/wsl.conf'
 sudo bash -c 'echo "[automount]" >> /etc/wsl.conf'
-sudo bash -c 'echo "root = C:/" >> /etc/wsl.conf'
-sudo bash -c 'echo "options = (metada)" >> /etc/wsl.conf'
+sudo bash -c 'echo "root = /" >> /etc/wsl.conf'
+sudo bash -c 'echo "options = metada" >> /etc/wsl.conf'
 sudo chattr +i /etc/resolv.conf
 
 sudo apt-get update
