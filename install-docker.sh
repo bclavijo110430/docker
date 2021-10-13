@@ -10,7 +10,7 @@ cat /mnt/c/cert/id_rsa.pub >> /root/.ssh/authorized_keys
 sudo rm /etc/resolv.conf
 sudo bash -c 'echo "nameserver 8.8.8.8" > /etc/resolv.conf'
 sudo bash -c 'echo "[network]" > /etc/wsl.conf'
-sudo bash -c 'echo "generateResolvConf = false" >> /etc/wsl.conf'
+#sudo bash -c 'echo "generateResolvConf = false" >> /etc/wsl.conf'
 sudo bash -c 'echo "[automount]" >> /etc/wsl.conf'
 sudo bash -c 'echo "root =/mnt/" >> /etc/wsl.conf'
 sudo bash -c 'echo "options = metada" >> /etc/wsl.conf'
