@@ -1,19 +1,17 @@
 #!/bin/bash
 sudo sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
-sudo sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/' /etc/ssh/sshd_config
-ssh-keygen -A
-service ssh restart
-mkdir /root/.ssh/
-
-cat /mnt/c/cert/id_rsa.pub >> /root/.ssh/authorized_keys
+  sudo sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/' /etc/ssh/sshd_config
+    ssh-keygen -A
+      service ssh restart
+        mkdir /root/.ssh/
+          cat /mnt/c/cert/id_rsa.pub >> /root/.ssh/authorized_keys
 
 sudo rm /etc/resolv.conf
-sudo bash -c 'echo "nameserver 8.8.8.8" > /etc/resolv.conf'
-sudo bash -c 'echo "[network]" > /etc/wsl.conf'
-sudo bash -c 'echo "generateResolvConf = false" >> /etc/wsl.conf'
-sudo chattr +i /etc/resolv.conf
-
-sudo apt-get update
+  sudo bash -c 'echo "nameserver 1.1.1.1" > /etc/resolv.conf'
+    sudo bash -c 'echo "[network]" > /etc/wsl.conf'
+      sudo bash -c 'echo "generateResolvConf = false" >> /etc/wsl.conf'
+        #sudo chattr +i /etc/resolv.conf
+          sudo apt-get update
 
 sudo apt-get install \
     apt-transport-https \
@@ -29,8 +27,7 @@ echo \
   $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 
 apt-get update 
-apt-get install docker-ce docker-ce-cli containerd.io -y
-
-sudo service docker start
-sudo service ssh start
+  apt-get install docker-ce docker-ce-cli containerd.io -y
+    sudo service docker start
+      sudo service ssh start
 exit
