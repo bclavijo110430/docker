@@ -20,7 +20,7 @@ service ssh restart
 
 mkdir /root/.ssh/
 
-cat /mnt/c/cert/id_rsa.pub >> /root/.ssh/authorized_keys
+cat /c/cert/id_rsa.pub >> /root/.ssh/authorized_keys
 
 apt-get install \
     apt-transport-https \
