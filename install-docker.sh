@@ -37,6 +37,8 @@ echo \
 
 apt-get update 
 apt-get install docker-ce docker-ce-cli containerd.io -y
-
+wget 'https://raw.githubusercontent.com/laurent22/wslpath/master/wslpath'
+chmod 755 wslpath
+sudo mv wslpath /usr/bin
 sudo service docker start
 sudo service ssh start 
