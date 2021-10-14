@@ -29,9 +29,8 @@ apt-get install docker-ce docker-ce-cli containerd.io -y
 sudo rm /etc/resolv.conf
 sudo touch /etc/resolv.conf
 sudo bash -c 'echo "nameserver 8.8.8.8" > /etc/resolv.conf'
-sudo bash -c 'echo "nameserver 1.1.1.1" > /etc/resolv.conf'
-sudo bash -c 'echo "[network]" > /etc/wsl.conf'
 sudo bash -c 'echo "generateResolvConf = false" >> /etc/wsl.conf'
 sudo chattr +i /etc/resolv.conf
+sudo bash -c 'echo "[network]" > /etc/wsl.conf'
 sudo service docker start
 sudo service ssh start 
