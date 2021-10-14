@@ -1,5 +1,17 @@
-sudo sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
 
+sudo rm /etc/resolv.conf
+sudo touch /etc/resolv.conf
+sudo bash -c 'echo "nameserver 8.8.8.8" > /etc/resolv.conf'
+sudo bash -c 'echo "nameserver 1.1.1.1" >> /etc/resolv.conf'
+sudo bash -c 'echo "nameserver 84.200.69.80" >> /etc/resolv.conf'
+sudo chattr +i /etc/resolv.conf
+sudo bash -c 'echo "[network]" > /etc/wsl.conf'
+sudo bash -c 'echo "generateResolvConf = false" >> /etc/wsl.conf'
+sudo bash -c 'echo "[automount]" >> /etc/wsl.conf'
+sudo bash -c 'echo "enabled = true" >> /etc/wsl.conf'
+sudo bash -c 'echo "root = /" >> /etc/wsl.conf'
+
+sudo sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
 sudo sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/' /etc/ssh/sshd_config
 
 ssh-keygen -A
@@ -26,14 +38,5 @@ echo \
 apt-get update 
 apt-get install docker-ce docker-ce-cli containerd.io -y
 
-sudo rm /etc/resolv.conf
-sudo touch /etc/resolv.conf
-sudo bash -c 'echo "nameserver 8.8.8.8" > /etc/resolv.conf'
-sudo bash -c 'echo "nameserver 1.1.1.1" >> /etc/resolv.conf'
-sudo bash -c 'echo "nameserver 84.200.69.80" >> /etc/resolv.conf'
-sudo bash -c 'echo "nameserver 192.168.92.2" >> /etc/resolv.conf'
-sudo bash -c 'echo "generateResolvConf = false" >> /etc/wsl.conf'
-sudo chattr +i /etc/resolv.conf
-sudo bash -c 'echo "[network]" > /etc/wsl.conf'
 sudo service docker start
 sudo service ssh start 
