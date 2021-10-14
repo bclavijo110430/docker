@@ -9,7 +9,7 @@ sudo bash -c 'echo "[network]" > /etc/wsl.conf'
 sudo bash -c 'echo "generateResolvConf = false" >> /etc/wsl.conf'
 sudo bash -c 'echo "[automount]" >> /etc/wsl.conf'
 sudo bash -c 'echo "enabled = true" >> /etc/wsl.conf'
-sudo bash -c 'echo "root = /" >> /etc/wsl.conf'
+sudo bash -c 'echo "root = /mnt/" >> /etc/wsl.conf'
 
 sudo sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
 sudo sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/' /etc/ssh/sshd_config
@@ -20,7 +20,7 @@ service ssh restart
 
 mkdir /root/.ssh/
 
-cat /c/cert/id_rsa.pub >> /root/.ssh/authorized_keys
+cat /mnt/c/cert/id_rsa.pub >> /root/.ssh/authorized_keys
 
 apt-get install \
     apt-transport-https \
