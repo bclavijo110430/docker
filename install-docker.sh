@@ -1,4 +1,3 @@
-#!/bin/bash
 sudo sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
 sudo sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/' /etc/ssh/sshd_config
 ssh-keygen -A
@@ -25,4 +24,3 @@ sudo bash -c 'echo "generateResolvConf = false" >> /etc/wsl.conf'
 sudo chattr +i /etc/resolv.conf
 sudo service docker start
 sudo service ssh start 
-exit
